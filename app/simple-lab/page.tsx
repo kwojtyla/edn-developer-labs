@@ -12,13 +12,18 @@ import { Clock, Users, Cloud, Star, Download } from "lucide-react";
 import { CodeBlock } from "@/components/code-block";
 import { AttentionAlert } from "@/components/attention-alert";
 import { AWSButton } from "@/components/aws-button";
-import { LeftSidebar } from "@/components/left-sidebar";
-import { RightSidebar } from "@/components/right-sidebar";
-import { CheckpointButton } from "@/components/checkpoint-button";
 import { useLanguage } from "@/components/language-provider";
 import { Navbar } from "@/components/navbar";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function AWSLambdaLab() {
   const { t } = useLanguage();
@@ -27,16 +32,10 @@ export default function AWSLambdaLab() {
     <>
       <Navbar />
       <div className="flex min-h-screen bg-background">
-        {/* Left Sidebar */}
-        <LeftSidebar />
-
-        {/* Main Content - Add left and right margins to account for fixed sidebars */}
         <main className="flex-1 ml-80 mr-80 px-8 py-6 overflow-y-auto">
-          {/* Header Section */}
           <div className="mb-8">
             <h1 className="text-4xl font-bold mb-4">{t("lab.title")}</h1>
 
-            {/* Lab Info Badges */}
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <Badge variant="outline" className="flex items-center gap-1">
                 <Users className="h-3 w-3" />
@@ -76,11 +75,39 @@ export default function AWSLambdaLab() {
                     serverless, utilizando as funcionalidades de versionamento e
                     direcionamento do Lambda e API Gateway.
                   </p>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button>
+                        <Download />
+                        Baixar arquivos do lab
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Arquivos do Lab</DialogTitle>
+                        <Button
+                          variant="ghost"
+                          className="flex items-center justify-between w-full"
+                        >
+                          <span>lambda_function.py</span>
+
+                          <Download />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          className="flex items-center justify-between w-full"
+                        >
+                          <span>labuser.ppk</span>
+
+                          <Download />
+                        </Button>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
             </section>
 
-            {/* Objetivos */}
             <section id="objectives">
               <Card>
                 <CardHeader>
@@ -144,7 +171,6 @@ export default function AWSLambdaLab() {
               </Card>
             </section>
 
-            {/* Cenário */}
             <section id="scenario">
               <Card>
                 <CardHeader>
@@ -168,7 +194,6 @@ export default function AWSLambdaLab() {
               </Card>
             </section>
 
-            {/* Pré-requisitos */}
             <section id="prerequisites">
               <Card>
                 <CardHeader>
@@ -194,7 +219,6 @@ export default function AWSLambdaLab() {
               </Card>
             </section>
 
-            {/* Parte 1: Criação da Função AWS Lambda */}
             <section id="step-1">
               <Card>
                 <CardHeader>
@@ -356,12 +380,10 @@ def lambda_handler(event, context):
                       className="w-full h-44 rounded border mt-4"
                     />
                   </div>
-                  <CheckpointButton stepId="step-1" />
                 </CardContent>
               </Card>
             </section>
 
-            {/* Parte 2: Publicação de Versões e Criação de Aliases */}
             <section id="step-2">
               <Card>
                 <CardHeader>
@@ -552,7 +574,6 @@ def lambda_handler(event, context):
                       </li>
                     </ol>
                   </div>
-                  <CheckpointButton stepId="step-2" />
                 </CardContent>
               </Card>
             </section>
@@ -781,7 +802,6 @@ def lambda_handler(event, context):
                       </li>
                     </ul>
                   </div>
-                  <CheckpointButton stepId="step-3" />
                 </CardContent>
               </Card>
             </section>
@@ -847,12 +867,10 @@ def lambda_handler(event, context):
                       className="w-full h-44 rounded border mt-4"
                     />
                   </div>
-                  <CheckpointButton stepId="step-4" />
                 </CardContent>
               </Card>
             </section>
 
-            {/* Parte 6: Limpeza */}
             <section id="step-6">
               <Card>
                 <CardHeader>
@@ -901,12 +919,10 @@ def lambda_handler(event, context):
                       className="w-full h-44 rounded border mt-4"
                     />
                   </div>
-                  <CheckpointButton stepId="step-6" />
                 </CardContent>
               </Card>
             </section>
 
-            {/* Footer */}
             <div className="text-center py-8 border-t">
               <p className="text-gray-600 dark:text-gray-400">
                 Escola da Nuvem · Todos os direitos reservados.
@@ -914,9 +930,6 @@ def lambda_handler(event, context):
             </div>
           </div>
         </main>
-
-        {/* Right Sidebar */}
-        <RightSidebar />
       </div>
     </>
   );
