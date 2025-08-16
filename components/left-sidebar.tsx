@@ -6,6 +6,7 @@ import { Trophy } from "lucide-react";
 import { useLabProgress } from "@/components/lab-progress-provider";
 import { useLanguage } from "@/components/language-provider";
 import { Timer } from "@/components/timer";
+import { Notepad } from "@/components/notepad";
 import { useState } from "react";
 
 const STEPS = [
@@ -22,10 +23,10 @@ export function LeftSidebar() {
   const { t } = useLanguage();
 
   return (
-    <aside className="fixed left-0 top-14 w-80 h-[calc(100vh-3.5rem)] bg-gray-50 dark:bg-gray-900 border-r p-4 overflow-y-auto z-40">
-      <div className="mb-6">
-        <Timer />
-      </div>
+    <aside className="fixed flex flex-col gap-2 left-0 top-14 w-80 h-[calc(100vh-3.5rem)] bg-gray-50 dark:bg-gray-900 border-r p-4 overflow-y-auto z-40">
+      <Timer />
+
+      <Notepad />
 
       <Card>
         <CardHeader className="pb-3">

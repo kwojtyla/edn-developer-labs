@@ -19,6 +19,13 @@ import { useLanguage } from "@/components/language-provider";
 import { Navbar } from "@/components/navbar";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function AWSLambdaLab() {
   const { t } = useLanguage();
@@ -76,6 +83,35 @@ export default function AWSLambdaLab() {
                     serverless, utilizando as funcionalidades de versionamento e
                     direcionamento do Lambda e API Gateway.
                   </p>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button>
+                        <Download />
+                        Baixar arquivos do lab
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Arquivos do Lab</DialogTitle>
+                        <Button
+                          variant="ghost"
+                          className="flex items-center justify-between w-full"
+                        >
+                          <span>lambda_function.py</span>
+
+                          <Download />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          className="flex items-center justify-between w-full"
+                        >
+                          <span>labuser.ppk</span>
+
+                          <Download />
+                        </Button>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
             </section>

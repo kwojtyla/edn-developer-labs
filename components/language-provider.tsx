@@ -59,6 +59,17 @@ const translations = {
     "timer.start": "Iniciar",
     "timer.pause": "Pausar",
     "timer.reset": "Resetar",
+
+    // Notepad
+    "notepad.title": "Notepad",
+    "notepad.button": "Notepad",
+    "notepad.placeholder": "Digite suas anotações aqui...",
+    "notepad.characters": "caracteres",
+    "notepad.autosaving": "Auto-salvando...",
+    "notepad.clear": "Limpar",
+    "notepad.save": "Salvar",
+    "notepad.saving": "Salvando...",
+    "notepad.info": "💡 Suas anotações são salvas automaticamente no navegador",
   },
   en: {
     // Header
@@ -102,6 +113,17 @@ const translations = {
     "timer.start": "Start",
     "timer.pause": "Pause",
     "timer.reset": "Reset",
+
+    // Notepad
+    "notepad.title": "Notepad - Notes",
+    "notepad.button": "Notepad",
+    "notepad.placeholder": "Type your notes here...",
+    "notepad.characters": "characters",
+    "notepad.autosaving": "Auto-saving...",
+    "notepad.clear": "Clear",
+    "notepad.save": "Save",
+    "notepad.saving": "Saving...",
+    "notepad.info": "💡 Your notes are automatically saved in the browser",
   },
 };
 
